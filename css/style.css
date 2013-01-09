@@ -3,9 +3,10 @@ html{
 }
 
 .scrolling{
-	float:left;
+	/*float:left;*/
+	cursor:pointer;
+	cursor: -moz-grab;
   	height: inherit;
-	overflow: hidden;
 	white-space: nowrap;
 	width: 300%;
 }
@@ -28,15 +29,15 @@ html{
 	display: inline-block;
 	overflow-y: hidden;
 	height: inherit;
-	width: 200pt;
+	width: 180pt;
 }
 
 .wrapper{
-	margin-top: 8%;
-	margin-left: 5%;
+	margin-top: 100px;
+	margin-left: 75px;
 	overflow:hidden;
-	height: 320pt;
+	height: 280pt;
 	width: 900pt;
-	position: relative;
+	position: absolute;
 	/*width: 1000000pt;*/
 }
