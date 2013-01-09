@@ -1,0 +1,42 @@
+html{
+	background-color: #343232
+}
+
+.scrolling{
+	float:left;
+  	height: inherit;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 300%;
+}
+
+.tile{
+	display: block;
+	cursor: pointer;
+	cursor: -moz-grab;
+	width : 120pt;
+	height: 80pt;
+	background-color: #1570A6;
+	border-radius: 5px 5px 5px 5px;
+}
+
+.tile:hover{
+	box-shadow: inset 0 0 1em #2A0235;
+}
+
+.tile-wrapper{
+	display: inline-block;
+	overflow-y: hidden;
+	height: inherit;
+	width: 200pt;
+}
+
+.wrapper{
+	margin-top: 8%;
+	margin-left: 5%;
+	overflow:hidden;
+	height: 320pt;
+	width: 900pt;
+	position: relative;
+	/*width: 1000000pt;*/
+}
