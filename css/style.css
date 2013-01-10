@@ -1,5 +1,5 @@
 html{
-	background-color: #343232
+	background-color: #505050;
 }
 
 .scrolling{
@@ -17,12 +17,13 @@ html{
 	cursor: -moz-grab;
 	width : 120pt;
 	height: 80pt;
-	background-color: #1570A6;
-	border-radius: 5px 5px 5px 5px;
+	background-color: #00BCF2;
+	/*border-radius: 5px 5px 5px 5px;*/
 }
 
 .tile:hover{
-	box-shadow: inset 0 0 1em #2A0235;
+	box-shadow: 0 0 1em #00A3D1;
+	/*box-shadow: inset 0 0 1em #2A0235;*/
 }
 
 .tile-wrapper{
