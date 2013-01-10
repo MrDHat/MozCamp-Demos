@@ -2,10 +2,26 @@ html{
 	background-color: #505050;
 }
 
+.heading{
+	color: #DDDDDE;
+    cursor: default;
+    font-family: 'Mate SC',serif;
+    font-size: 4em;
+    letter-spacing: 0;
+    margin: 10px;
+    text-align: center;
+    text-shadow: 0 0 10px white;
+    transition: all 0.3s linear 0s;
+}
+
+.heading:hover{
+	text-shadow:0 0 20px white;
+}
+
 .scrolling{
 	/*float:left;*/
 	cursor:pointer;
-	cursor: -moz-grab;
+	cursor: move;
   	height: inherit;
 	white-space: nowrap;
 	width: 300%;
@@ -14,7 +30,7 @@ html{
 .tile{
 	display: block;
 	cursor: pointer;
-	cursor: -moz-grab;
+	cursor: move;	
 	width : 120pt;
 	height: 80pt;
 	background-color: #00BCF2;
