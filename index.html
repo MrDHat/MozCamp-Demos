@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <head>
 	<title>MozCamp Delhi January 2013 Demos</title>
+	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/demos.css">
+	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular">
+	<link href='http://fonts.googleapis.com/css?family=Joti+One|Stalemate' rel='stylesheet' type='text/css'>
+	
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/dragdivscroll.js"></script>
-	<script type="text/javascript" src="js/tile.js"></script>
+	<!--<script type="text/javascript" src="js/tile.js"></script>-->
 	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/demos.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -20,20 +26,17 @@
 	</header>
 	
 	<section id = "popupSection">
-	<div id="light" class="popup">
- 		<div id="close" class="close" onclick="togglePopup()"><img src="img/closeButton.png"></div>
-	</div>
-	<div id="fade" class="black_overlay" onclick="togglePopup()"></div>
+		<div id="light" class="popup">
+		</div>
+		<div id="fade" class="black_overlay" onclick="hidePopup()"></div>
 	</section>
 
 	<div class="wrapper">
 		<div class="scrolling" id="scrolling">
 
 
-<!-- Need to remove them and add on the fly via js  -->
-
 			<div class="tile-wrapper">
-				<div class="tile" onclick="togglePopup()"></div>
+				<div class="tile" onclick="showPopup(this)"></div>
 				<br>
 				<div class="tile"></div>
 				<br>
@@ -177,8 +180,6 @@
 				<br>
 				<div class="tile"></div>
 			</div>
-
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
 		</div>
 	</div>	

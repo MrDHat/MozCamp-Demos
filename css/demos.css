@@ -1,0 +1,44 @@
+/*	Sticky Notes Application
+*/
+
+.note{
+	display: block;
+	background-color: #B3C4D3;
+	width: 300px;
+	height: 350px;
+	position: absolute;
+	top: 15%;
+	left: 10%;
+	box-shadow: 10px 5px 5px black;
+	transition: all .5s;
+}
+
+.note:hover{
+	transform: rotate(12deg) scale(1.2);
+
+}
+
+.note_heading{
+	height: 50px;
+	border-bottom: 1px #52A515 solid;
+	border-width: 3px;
+	margin-top: 10px;
+	text-align: center;
+	text-indent:  10px;
+	font-weight: bold;
+	font-size: 1.3em
+}
+
+.note_content{
+	margin-left: 10px;
+	margin-top: 10px;
+	font-family: "Reenie Beanie",arial,sans-serif;
+	font-size: 1.6em;
+	font-weight: bold;
+}
+
+.save_button{
+	margin-left: 30px;
+}
+
+/* End Sticky notes */

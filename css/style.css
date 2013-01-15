@@ -18,7 +18,6 @@ html{
 }
 
 .close{
-	display: none;
 	color: #00A3D1;
 	position: absolute;
 	z-index: 1003;

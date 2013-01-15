@@ -1,6 +1,8 @@
-/****
-Contains Tile Generator functions
-****/
+/*
+Contains Popup Content Generator functions
+*/
+
+	//Plan Changed!
 
 /*
 tileJSON format:
@@ -9,11 +11,13 @@ tileJSON format:
 	
 
 	}
+
 */
+var wrapperTileCount ;	//Count for no of tiles in a tile-wrapper
 
 $(document).ready(function(){
 	
-	var wrapperTileCount = 0 ;	//Count for no of tiles in a tile-wrapper
+	wrapperTileCount = 0 ;	
 
 	//Stringy tileJSON
 
@@ -35,4 +39,5 @@ function generateTile(tileJSON, tileId){
 	var tile_end = '</div><br>';
 
 }
+
 
