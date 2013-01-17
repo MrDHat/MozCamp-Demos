@@ -50,3 +50,15 @@ function handleFileLoad(evt){
 
 
 /* End Simple File Upload */
+
+
+/*
+MacOS X Dock
+*/
+
+function setBackground(){
+	var popUp = document.getElementById('light') ;
+	popUp.style.backgroundImage = "url("+ "img/Dock/MacOSXBack.jpg" +")";
+}
+
+/* End Dock */

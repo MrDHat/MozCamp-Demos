@@ -43,6 +43,7 @@
 
 /* End Sticky notes */
 
+
 /*
 Simple File Upload [Sets uploaded Image as background]
 */
@@ -51,3 +52,25 @@ Simple File Upload [Sets uploaded Image as background]
 	margin-top: 10%;
 }
 /* End Simple File Upload*/
+
+
+/*
+Dock
+*/
+
+.dock{
+	margin-left: 2%;
+	margin-top: 40%;
+	float: left;
+}
+
+.dock_item{
+	transition: all .5s;
+}
+
+.dock_item:hover{
+	transform: translateY(-30px) scale(1.5);
+
+}
+
+/* End Dock */
