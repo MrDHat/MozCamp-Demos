@@ -1,3 +1,6 @@
+/* Popup
+*/
+
 function showPopup(element){
 	$('#light').show('slow');
 	$('#fade').show('slow');
@@ -18,3 +21,6 @@ function hidePopup(){
 	$('#fade').hide('slow');
 	$('#close').hide('slow');
 }
+
+/* End Popup */
+
