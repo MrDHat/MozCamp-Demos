@@ -26,3 +26,27 @@ function clearNote(){
 	document.getElementById('note_content').innerHTML = local["note_content"];
 }
 /* End Sticky Notes */
+
+/*
+Simple File Upload
+*/
+
+function fileToBackground(files){
+	var backImg = files[0];
+
+	var reader = new FileReader();
+
+	reader.onload = handleFileLoad ;
+
+	reader.readAsDataURL(backImg);
+
+}
+
+
+function handleFileLoad(evt){
+	var popUp = document.getElementById('light') ;
+	popUp.style.backgroundImage = "url("+ evt.target.result + ")";
+}
+
+
+/* End Simple File Upload */
