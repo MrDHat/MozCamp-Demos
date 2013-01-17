@@ -42,3 +42,12 @@
 }
 
 /* End Sticky notes */
+
+/*
+Simple File Upload [Sets uploaded Image as background]
+*/
+.input_file{
+	margin-left: 30%;
+	margin-top: 10%;
+}
+/* End Simple File Upload*/
