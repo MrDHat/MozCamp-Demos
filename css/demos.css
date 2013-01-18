@@ -173,9 +173,175 @@ Drag and Drop
 */
 
 #boxA, #boxB {
-   float:left;padding:10px;margin:10px;
+   float:left;
+   padding:10px;
+   margin:10px;
 }
-#boxA { background-color: #6633FF; width:75px; height:75px;  }
-#boxB { background-color: #FF6699; width:150px; height:150px; }
+#boxA { 
+	background-color: #6633FF; 
+	width:75px; 
+	height:75px;  
+}
+#boxB { 
+	background-color: #FF6699; 
+	width:150px; 
+	height:150px; 
+}
 
 /* End Drag and Drop */
+
+
+/*
+Box Animation
+*/
+
+@keyframes box_anim
+{
+	0%   {background:red; left:0px; top:0px;}
+	25%  {background:yellow; left:200px; top:0px;}
+	50%  {background:blue; left:200px; top:200px;}
+	75%  {background:green; left:0px; top:200px;}
+	100% {background:red; left:0px; top:0px;}
+}
+
+@-moz-keyframes box_anim /* Firefox */
+{
+	0%   {background:red; left:0px; top:0px;}
+	25%  {background:yellow; left:200px; top:0px;}
+	50%  {background:blue; left:200px; top:200px;}
+	75%  {background:green; left:0px; top:200px;}
+	100% {background:red; left:0px; top:0px;}
+}
+
+@-webkit-keyframes box_anim /* Safari and Chrome */
+{
+	0%   {background:red; left:0px; top:0px;}
+	25%  {background:yellow; left:200px; top:0px;}
+	50%  {background:blue; left:200px; top:200px;}
+	75%  {background:green; left:0px; top:200px;}
+	100% {background:red; left:0px; top:0px;}
+}
+
+@-o-keyframes box_anim /* Opera */
+{
+	0%   {background:red; left:0px; top:0px;}
+	25%  {background:yellow; left:200px; top:0px;}
+	50%  {background:blue; left:200px; top:200px;}
+	75%  {background:green; left:0px; top:200px;}
+	100% {background:red; left:0px; top:0px;}
+}
+
+.box_anim_div
+{
+	width:100px;
+	height:100px;
+	margin-left: 400px;
+	margin-top: 150px;
+	background:red;
+	position:relative;
+	animation:box_anim 5s;
+	-moz-animation:box_anim 5s; /* Firefox */
+	-webkit-animation:box_anim 5s; /* Safari and Chrome */
+	-o-animation:box_anim 5s; /* Opera */
+
+	animation-iteration-count: infinite;
+	-moz-animation-iteration-count: infinite;
+	-o-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+
+}
+
+
+/* End Box Animation */
+
+
+/*
+Animated Mech
+*/
+
+@-moz-keyframes rotate-mech {
+    0% {
+        -moz-transform: rotate(0deg)
+    }
+    25% {
+        -moz-transform: rotate(15deg)
+    }
+    50% {
+        -moz-transform: rotate(-5deg)
+    }
+    55% {
+        -moz-transform: rotate(0deg)
+    }
+    75% {
+        -moz-transform: rotate(-10deg)
+    }
+    100% {
+        -moz-transform: rotate(0deg)
+    }
+}
+
+@-webkit-keyframes rotate-mech {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+    25% {
+        -webkit-transform: rotate(15deg)
+    }
+    50% {
+        -webkit-transform: rotate(-5deg)
+    }
+    55% {
+        -webkit-transform: rotate(0deg)
+    }
+    75% {
+        -webkit-transform: rotate(-10deg)
+    }
+    100% {
+        -webkit-transform: rotate(0deg)
+    }
+}
+
+@keyframes rotate-mech {
+    0% {
+        transform: rotate(0deg)
+    }
+    25% {
+        transform: rotate(15deg)
+    }
+    50% {
+        transform: rotate(-5deg)
+    }
+    55% {
+        transform: rotate(0deg)
+    }
+    75% {
+        transform: rotate(-10deg)
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+}
+
+
+.animated_img{
+
+	margin-top: 100px;
+	margin-left: 100px;
+
+	-moz-animation-name: rotate-mech;
+    -moz-animation-duration: 7s;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-name: rotate-mech;
+    -webkit-animation-duration: 7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: rotate-mech;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+}
+
+
+
+/* End Animated Mech */
+
+
+
