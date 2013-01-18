@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html manifest="AppCache.appcache">
 <head>
 	<title>MozCamp Delhi January 2013 Demos</title>
 	
@@ -11,7 +12,7 @@
 	<script type="text/javascript" src="js/dragdivscroll.js"></script>
 	<!--<script type="text/javascript" src="js/tile.js"></script>-->
 	<script type="text/javascript" src="js/script.js"></script>
-	<script type="text/javascript" src="js/demos.js"></script>
+	<!--<script type="text/javascript" src="js/demos.js"></script>-->
 
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -78,7 +79,70 @@
 
 		/* End DragnDrop File upload */
 
+		/*
+		Sticky Notes
+		*/
 
+		function saveNote(){
+			var local = window.localStorage ;
+			var note_heading = document.getElementById('note_heading').innerHTML;
+			var note_content = document.getElementById('note_content').innerHTML;
+			local.setItem("note_heading", note_heading);
+			local.setItem("note_content", note_content);
+			//alert(local["note_heading"] + local["note_content"]);
+		}
+
+		function loadNote(){
+			var local = window.localStorage ;
+			//alert(local["note_heading"] + local["note_content"]);
+			document.getElementById('note_heading').innerHTML = local["note_heading"];
+			document.getElementById('note_content').innerHTML = local["note_content"];
+		}
+
+		function clearNote(){
+			var local = window.localStorage ;
+			local.setItem("note_heading","");
+			local.setItem("note_content","");
+			document.getElementById('note_heading').innerHTML = local["note_heading"];
+			document.getElementById('note_content').innerHTML = local["note_content"];
+		}
+		/* End Sticky Notes */
+
+		/*
+		Simple File Upload
+		*/
+
+		function fileToBackground(files){
+			var backImg = files[0];
+
+			var reader = new FileReader();
+
+			reader.onload = handleFileLoad ;
+
+			reader.readAsDataURL(backImg);
+
+		}
+
+
+		function handleFileLoad(evt){
+			var popUp = document.getElementById('light') ;
+			popUp.style.backgroundImage = "url("+ evt.target.result + ")";
+		}
+
+
+		/* End Simple File Upload */
+
+
+		/*
+		MacOS X Dock
+		*/
+
+		function setBackground(){
+			var popUp = document.getElementById('light') ;
+			popUp.style.backgroundImage = "url("+ "img/Dock/MacOSXBack.jpg" +")";
+		}
+
+		/* End Dock */
 	</script>
 </head>
 <body>
@@ -89,6 +153,134 @@
 	
 	<section id = "popupSection">
 		<div id="light" class="popup">
+			
+			<div id="close" class="close" onclick="hidePopup()">
+				<img src="img/closeButton.png">
+			</div>
+
+			<div style="display:none" id="AnimatedMech.html">
+				<img src="img/mechanical.png" class="animated_img">
+			</div>
+			
+			<div style="display:none" id="Dock.html">
+				<div id="dock" class="dock">
+					<script type="text/javascript">
+						var disp = $('dock').css('display');
+						alert(disp);
+							//setBackground();
+					</script>
+					<img class="dock_item" src="img/Dock/Finder.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/Dashboard.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/Safari.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/iTunes.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/Mail.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/QuickTime.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/FaceTime.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/SystemPrefrences.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/AppStore.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/ActivityMonitor.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/Dictionary.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/Launchpad.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/Maps.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/Stickies.png" width="65px" height="65px">
+					<img class="dock_item" src="img/Dock/Trash.png" width="65px" height="65px">
+				</div>
+			</div>
+			
+			<div style="display:none" id="DragnDrop.html">
+				<center>
+					<div>
+						Try to move the purple box into the pink box.
+					</div>
+					<div id="boxA" draggable="true" ondragstart="return dragStart(event)">
+						<p>Drag Me</p>
+					</div>
+					<div id="boxB" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
+						Dustbin
+					</div>
+				</center>
+			</div>
+			
+			<div style="display:none" id="DragnDropFile.html">
+				<div id="drop_container" class="drop_container">
+					<div id="drop_files" class="drop_files" ondragenter="return noopHandler(event)" ondragexit="return noopHandler(event)" ondragover="return noopHandler(event)" ondrop="return dropHandler(event)">
+						Drop Images Here
+					</div>
+					<img id="preview" class="preview" alt="Image will be displayed here">
+				</div>
+			</div>
+			
+			<div style="display:none" id="MediaQueries.html">
+				<div class="media_wrapper one">
+					This box will turn to blue if the viewing area is less than 600px
+				</div>
+				<div class="media_wrapper two">
+					This box will turn to green if the viewing area is greater than 900px
+				</div>
+				<div class="media_wrapper three">
+					This box will turn to red if the viewing area is between 600px and 900px
+				</div>
+				<p class="viewing-area">
+					<strong>Your current viewing area is:</strong>
+					<span class="lt600">less than 600px</span>
+					<span class="bt600-900">between 600 - 900px</span>
+					<span class="gt900">greater than 900px</span></p>
+			</div>
+			
+			<div style="display:none" id="SimpleBoxAnimation.html">
+				<div class="box_anim_div"></div>
+			</div>
+			
+			<div style="display:none" id="SimpleFileUpload.html">
+				<input type="file" id="input_file" class="input_file" onchange="fileToBackground(this.files)">
+			</div>
+
+			<div style="display:none" id="StickyNotes.html">
+				<div class="note" id="note">
+					<div id="note_heading" class="note_heading" contentEditable="true">
+						Title Goes Here!
+					</div>
+					<div id="note_content" class="note_content" contentEditable="true">
+						Write Some Notes
+					</div>
+					<script>
+						loadNote();
+					</script>
+				</div>
+				<input type="button" value="Delete Note" class="clear_button" onclick="clearNote()">
+				<input type="button" value="Save" class="save_button" onclick="saveNote()">
+			</div>
+			
+			<div style="display:none" id="CSSTransitions.html">
+				<div class="div_transition">Hover to see the transition effect!</div>
+			</div>
+			
+			<div style="display:none" id="AppCache.html">
+				<img src="img/AppCache.png" height="100%" width="100%">
+			</div>
+			
+
+
+
+			<div style="display:none" id="SimpleBoxAnimation.html">
+				<div class="box_anim_div"></div>
+			</div>
+			<div style="display:none" id="SimpleBoxAnimation.html">
+				<div class="box_anim_div"></div>
+			</div>
+			<div style="display:none" id="SimpleBoxAnimation.html">
+				<div class="box_anim_div"></div>
+			</div>
+
+			<div style="display:none" id="SimpleBoxAnimation.html">
+				<div class="box_anim_div"></div>
+			</div>
+
+
+
+
+
+
 		</div>
 		<div id="fade" class="black_overlay" onclick="hidePopup()"></div>
 	</section>
@@ -98,70 +290,77 @@
 
 
 			<div class="tile-wrapper">
-				<div class="tile" onclick="showPopup(this)"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Semantic Elements</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Canvas 1</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Canvas 2</div>
 			</div>
 
 			<div class="tile-wrapper">
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Canvas 3</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Canvas 4</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Canvas 5</div>
 			</div>
 
 			<div class="tile-wrapper">
-				<div class="tile"></div>
+				<div class="tile" id="AppCache" onclick="showPopup(this)">Application Cache</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="contentEditable" onclick="showPopup(this)">contentEditable</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="StickyNotes" onclick="showPopup(this)">Local Storage (Sticky Notes)</div>
 			</div>
 
 			<div class="tile-wrapper">
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Geolocation 1</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Geolocation 2</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="SimpleFileUpload" onclick="showPopup(this)">File API [Input Type]</div>
+				<br>
 			</div>
 			<div class="tile-wrapper">
-				<div class="tile"></div>
+				<div class="tile" id="DragnDrop" onclick="showPopup(this)">Drag and Drop</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="DragnDropFile" onclick="showPopup(this)">Drag and Drop File Upload</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Fonts</div>
+				<br>
 			</div>
 			<div class="tile-wrapper">
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)">CSS Selectors</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Text Shadow</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="Dock" onclick="showPopup(this)">CSS3 Transformations [Mac OSX Dock]</div>
+				<br>
 			</div>
 			<div class="tile-wrapper">
-				<div class="tile"></div>
+				<div class="tile" id="CSSTransitions" onclick="showPopup(this)">CSS3 Transitions</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="SimpleBoxAnimation" onclick="showPopup(this)">CSS3 Animations</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="AnimatedMech" onclick="showPopup(this)">Animation with Transformations</div>
+				<br>
 			</div>
 			<div class="tile-wrapper">
-				<div class="tile"></div>
+				<div class="tile" id="MediaQueries" onclick="showPopup(this)">Media Queries</div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)"></div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)"></div>
 			</div>
+			
+
+
 			<div class="tile-wrapper">
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)"></div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)"></div>
 				<br>
-				<div class="tile"></div>
+				<div class="tile" id="SemanticElements" onclick="showPopup(this)"></div>
 			</div><div class="tile-wrapper">
 				<div class="tile"></div>
 				<br>

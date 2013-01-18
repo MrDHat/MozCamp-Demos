@@ -42,6 +42,14 @@ html{
 	text-shadow: 0 0 20px white;
 }
 
+
+iframe{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
 .popup{
 	display: none;
 	position: absolute;

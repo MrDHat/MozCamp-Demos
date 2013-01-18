@@ -61,7 +61,7 @@ function setBackground(){
 	popUp.style.backgroundImage = "url("+ "img/Dock/MacOSXBack.jpg" +")";
 }
 
-/* End Dock */(
+/* End Dock */
 
 
 /*

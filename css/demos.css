@@ -344,4 +344,32 @@ Animated Mech
 /* End Animated Mech */
 
 
+/*
+CSS Transitions
+*/
+
+.div_transition
+{
+	width:100px;
+	height:100px;
+	background:green;
+	transition:width 2s, height 2s;
+	-moz-transition:width 2s, height 2s, -moz-transform 2s; /* Firefox*/
+	-webkit-transition:width 2s, height 2s, -webkit-transform 2s; /* Safari and Chrome */
+	-o-transition:width 2s, height 2s, -o-transform 2s; /* Opera */
+}
+
+.div_transition:hover
+{
+	width:200px;
+	height:200px;
+	transform:rotate(180deg);
+	-moz-transform:rotate(180deg); /* Firefox */
+	-webkit-transform:rotate(180deg); /* Safari and Chrome */
+	-o-transform:rotate(180deg); /* Opera */
+}
+
+/* End Transitions */
+
+
 

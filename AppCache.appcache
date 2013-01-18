@@ -1,0 +1,37 @@
+CACHE MANIFEST
+# v1
+# Cache manifest for MozCamp Demos
+
+CACHE:
+index.html
+css/style.css
+css/demos.css
+js/script.js
+js/demos.js
+img/closeButton.png
+img/mechanical.png
+
+FALLBACK:
+# Some Fallback Content
+
+NETWORK:
+img/Dock/ActivityMonitor.png
+img/Dock/AppStore.png
+img/Dock/Clock.png
+img/Dock/Dashboard.png
+img/Dock/Dictionary.png
+img/Dock/FaceTime.png
+img/Dock/Finder.png
+img/Dock/Folder.png
+img/Dock/iTunes.png
+img/Dock/Launchpad.png
+img/Dock/MacOSXBack.jpg
+img/Dock/Mail.png
+img/Dock/Maps.png
+img/Dock/QuickTime.png
+img/Dock/Safari.png
+img/Dock/Stickies.png
+img/Dock/SystemPrefrences.png
+img/Dock/TextEdit.png
+img/Dock/TimeMachine.png
+img/Dock/Trash.png
