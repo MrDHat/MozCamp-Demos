@@ -98,7 +98,7 @@ Drag n Drop File Upload
 	border-radius: 20px;
 }
 
-.drop_files_dropiing{
+.drop_files_droping{
 	display: inline-block;
 	margin-top: 100px;
 	margin-left: 10px;
@@ -114,7 +114,7 @@ Drag n Drop File Upload
 }
 
 .preview{
-	display: ;
+	padding-left: 20px;
 }
 
 /* End Drag n Drop File */
@@ -166,9 +166,16 @@ Media Queries
     }
 }
 
-
-
 /* End Media Queries */
 
+/* 
+Drag and Drop
+*/
 
+#boxA, #boxB {
+   float:left;padding:10px;margin:10px;
+}
+#boxA { background-color: #6633FF; width:75px; height:75px;  }
+#boxB { background-color: #FF6699; width:150px; height:150px; }
 
+/* End Drag and Drop */
