@@ -61,4 +61,54 @@ function setBackground(){
 	popUp.style.backgroundImage = "url("+ "img/Dock/MacOSXBack.jpg" +")";
 }
 
-/* End Dock */
+/* End Dock */(
+
+
+/*
+DragnDrop File Upload
+*/
+
+
+function dragDrop(){
+	var dropbox = document.getElementById("drop_files")
+ 	alert("agjhadgakufhkjfjsfkjaskjfhkahfkhakfhahfkskjfahkj");
+ 	// init event handlers
+	dropbox.addEventListener("dragenter", noopHandler, false);
+	dropbox.addEventListener("dragexit", noopHandler, false);
+	dropbox.addEventListener("dragover", noopHandler, false);
+	dropbox.addEventListener("drop", dropHandler, false);
+}
+
+function noopHandler(evt) {
+	alert("agjhadg");
+	evt.stopPropagation();
+	evt.preventDefault();
+}
+
+function dropHandler(evt){
+	alert("agjhaafhskughashgg");
+	evt.stopPropagation();
+	evt.preventDefault();
+
+	var files = evt.dataTransfer.files;
+	var count = files.length;
+
+	if(count > 0)
+		handleDnDFiles(files);
+}
+
+
+function handleDnDFiles(files){
+	var file = files[0];
+
+	var reader = new FileReader();
+	reader.onload = handleDnDFileLoad;
+	reader.readAsDataURL(file);
+}
+
+function handleDnDFileLoad(evt){
+	var img = document.getElementById('preview');
+	img.src = evt.target.result;
+}
+
+/* End DragnDrop File upload */

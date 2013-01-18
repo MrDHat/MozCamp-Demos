@@ -74,3 +74,101 @@ Dock
 }
 
 /* End Dock */
+
+/*
+Drag n Drop File Upload
+*/
+
+.drop_container{
+	float: left;
+}
+
+.drop_files{
+	display: inline-block;
+	margin-top: 100px;
+	margin-left: 10px;
+	padding-top: 100px;
+	padding-left: 30px;
+	height: 100px;
+	width: 500px;
+	background-color: #282433;
+	border: 2px #16800A dashed;
+	text-align: center;
+	color: #DDDDDE;
+	border-radius: 20px;
+}
+
+.drop_files_dropiing{
+	display: inline-block;
+	margin-top: 100px;
+	margin-left: 10px;
+	padding-top: 100px;
+	padding-left: 30px;
+	height: 100px;
+	width: 500px;
+	background-color: #443B3E;
+	border: 5px #16800A solid;
+	text-align: center;
+	color: #DDDDDE;
+	border-radius: 30px;
+}
+
+.preview{
+	display: ;
+}
+
+/* End Drag n Drop File */
+
+
+
+/*
+Media Queries
+*/
+
+.media_wrapper {
+    border: solid 1px #666; 
+    padding: 5px 10px;
+    margin: 40px;
+}
+
+.viewing-area span {
+    color: #666;
+    display: none;
+}
+
+/* max-width */
+@media screen and (max-width: 600px) {
+    .one {
+        background: #95B7E1;
+    }
+    span.lt600 {
+        display: inline-block;
+    }
+}
+
+/* min-width */
+@media screen and (min-width: 900px) {
+    .two {
+        background: #83B652;
+    }
+    span.gt900 {
+        display: inline-block;
+    }
+}
+
+/* min-width & max-width */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+    .three {
+        background: #ED2024;
+    }
+    span.bt600-900 {
+        display: inline-block;
+    }
+}
+
+
+
+/* End Media Queries */
+
+
+
