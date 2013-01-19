@@ -143,6 +143,39 @@
 		}
 
 		/* End Dock */
+
+
+		/*
+		Canvas Composting All
+		*/
+
+		var compositeTypes = [
+		  'source-over','source-in','source-out','source-atop',
+		  'destination-over','destination-in','destination-out',
+		  'destination-atop','lighter','darker','copy','xor'
+		];
+
+		function drawShape(){
+		  for (i=0;i<compositeTypes.length;i++){
+		    var label = document.createTextNode(compositeTypes[i]);
+		    document.getElementById('lab'+i).appendChild(label);
+		    var ctx = document.getElementById('tut'+i).getContext('2d');
+
+		    // draw rectangle
+		    ctx.fillStyle = "#FF3366";
+		    ctx.fillRect(15,15,70,70);
+
+		    // set composite property
+		    ctx.globalCompositeOperation = compositeTypes[i];
+
+		    // draw circle
+		    ctx.fillStyle = "#0066FF";
+		    ctx.beginPath();
+		    ctx.arc(75,75,35,0,Math.PI*2,true);
+		    ctx.fill();
+		  }
+		}
+		/* End All Cpmposting */
 	</script>
 </head>
 <body>
@@ -165,9 +198,26 @@
 			<div style="display:none" id="Dock.html">
 				<div id="dock" class="dock">
 					<script type="text/javascript">
-						var disp = $('dock').css('display');
-						alert(disp);
-							//setBackground();
+						/*
+						$(allInView);
+						$('light').scroll(allInView);
+						function isScrolledIntoView(elem){
+						var docViewTop = $('light').scrollTop();
+						var docViewBottom = $('light').height();
+						var elemTop = $(elem).offset().top;
+						var elemBottom = elemTop + $(elem).height();
+							return ((elemBottom<=docViewBottom)&&(elemTop>=docViewTop);
+						}
+
+						function allInView(){
+							if(isScrolledIntoView('dock'))
+												setBackground();
+						}
+						*/
+
+						/*var disp = $('dock');
+						alert(disp.is(':visible'));
+							//setBackground();*/
 					</script>
 					<img class="dock_item" src="img/Dock/Finder.png" width="65px" height="65px">
 					<img class="dock_item" src="img/Dock/Dashboard.png" width="65px" height="65px">
@@ -259,25 +309,260 @@
 				<img src="img/AppCache.png" height="100%" width="100%">
 			</div>
 			
+			<div style="display:none" id="CanvasBasic.html">
+					<img id = "firefox" src = "img/firefox.png" height = "100" width = "100" style = "display:none;">
+					<canvas id = "myCanvas" height = "500" width = "500" style = "border:5px solid;">
+					<script>
 
+					var canvas = document.getElementById("myCanvas");
+					var ctx = canvas.getContext("2d");
 
+					//Create gradient
+					var grd = ctx.createRadialGradient(250, 250, 5, 250, 250, 350);
+					grd.addColorStop(0,"green");
+					grd.addColorStop(1,"white");
+					ctx.fillStyle=grd;
+					ctx.fillRect(0,0,500,500);
 
-			<div style="display:none" id="SimpleBoxAnimation.html">
-				<div class="box_anim_div"></div>
+					ctx.font = "30px Arial Black";
+
+					//Write Text
+					ctx.fillText("MozCamp",70,490);
+					ctx.strokeText("Delhi 2013",235,490);
+
+					//Draw a line
+					ctx.moveTo(0,450);
+					ctx.lineTo(500,450);
+					ctx.stroke();
+
+					//Draw image
+					var img = document.getElementById("firefox");
+					ctx.drawImage(img,125,95);
+
+					//Draw circle around the image
+					ctx.beginPath();
+					ctx.arc(250,220,110,0,Math.PI*2, true);
+					ctx.stroke();
+					</script>
 			</div>
-			<div style="display:none" id="SimpleBoxAnimation.html">
-				<div class="box_anim_div"></div>
+			
+			<div style="display:none" id="Canvas_composting_single.html">
+				<canvas id="myCanvas1" width="125" height="125"></canvas>
+				<script type="text/javascript">
+					
+					//var label = document.createTextNode("Source-over");
+				    can = document.getElementById("myCanvas1");
+				    var ctx = can.getContext("2d");
+				    
+					// draw rectangle
+				    ctx.fillStyle = "red";
+				    ctx.fillRect(15,15,70,70);
+
+				    // set composite property
+				    ctx.globalAlpha=0.38;
+				    ctx.globalCompositeOperation = "source-over";
+
+				    // draw circle
+				    ctx.fillStyle = "blue";
+				    ctx.beginPath();
+				    ctx.arc(75,75,35,0,Math.PI*2,true);
+				    ctx.fill();
+				    
+				</script>
 			</div>
-			<div style="display:none" id="SimpleBoxAnimation.html">
-				<div class="box_anim_div"></div>
+
+			<div style="display:none" id="Canvas_Line.html">
+				<canvas id = "myCanvas2" height = "500" width = "500" style = "border:5px solid;">
+				<script>
+
+				var canvas = document.getElementById("myCanvas2");
+				var ctx = canvas.getContext("2d");
+
+				ctx.fillStyle='orange';
+				ctx.fillRect(0,0,500,500);
+
+				//Draw line 1
+				ctx.moveTo(15,15);
+				ctx.lineTo(100,250);
+				ctx.stroke();
+				ctx.fillText('Plain Line',15,300);
+
+				//Draw line 2 (Shadowing)
+				ctx.moveTo(160,15);
+				ctx.lineTo(250,250);
+				ctx.lineCap = "square";
+				ctx.lineWidth = 6;
+				ctx.shadowOffsetX = 10;
+				ctx.shadowOffsetY = 10;
+				ctx.shadowBlur = 5;
+				ctx.shadowColor = 'grey';
+				ctx.stroke();
+
+				//Draw line 3 (Miter)
+				ctx.moveTo(300,15);
+				ctx.lineTo(400,250);
+				ctx.lineWidth = 12;
+				ctx.shadowOffsetX = 0;
+				ctx.shadowOffsetY = 0;
+				ctx.shadowBlur = 0;
+				ctx.shadowColor = 'grey';
+				ctx.lineCap = "square";
+				ctx.lineJoin = "miter";
+				ctx.miterLimit = 10;
+				ctx.stroke();
+
+
+				</script>
 			</div>
 
-			<div style="display:none" id="SimpleBoxAnimation.html">
-				<div class="box_anim_div"></div>
+
+			<div style="display:none" id="canvas_mouseover.html">
+			    <canvas id="myCanvas3" width="578" height="200"></canvas>
+			    <script>
+			      function writeMessage(canvas, message) {
+			        var context = canvas.getContext('2d');
+			        context.clearRect(0, 0, canvas.width, canvas.height);
+			        context.font = '18pt Calibri';
+			        context.fillStyle = 'black';
+			        context.fillText(message, 10, 25);
+			      }
+			      function getMousePos(canvas, evt) {
+			        var rect = canvas.getBoundingClientRect();
+			        return {
+			          x: evt.clientX - rect.left,
+			          y: evt.clientY - rect.top
+			        };
+			      }
+			      var canvas = document.getElementById('myCanvas3');
+			      var context = canvas.getContext('2d');
+
+			      canvas.addEventListener('mousemove', function(evt) {
+			        var mousePos = getMousePos(canvas, evt);
+			        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+			        writeMessage(canvas, message);
+			      }, false);
+			    </script>
+			</div>
+			
+			<div style="display:none" id="GeoLocCoord.html">
+				<p id="demo">Click the button to get your coordinates:</p>
+				<button onclick="getLocation()">Try It</button>
+
+				<script>
+				var x=document.getElementById("demo");
+				function getLocation()
+				  {
+				  if (navigator.geolocation)
+					{
+					    navigator.geolocation.getCurrentPosition(showPosition);
+				    }
+				  else
+				  {
+				  	x.innerHTML="Geolocation is not supported by this browser.";}
+				  }
+
+				function showPosition(position)
+				  {
+					  x.innerHTML="Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude+ "<br>Speed: " + position.coords.accuracy;	
+				  }
+				</script>
+			</div>
+			
+			<div style="display:none" id="GeoLocMap.html">
+				<p id="demo">Click the button to get your GeoLocation on Maps:</p>
+
+				<button onclick="getLocation()">Get GeoLocation</button>
+				<div id="mapholder"></div>
+				<script>
+				var x=document.getElementById("demo");
+				function getLocation()
+				  {
+				  if (navigator.geolocation)
+				    {
+				    	navigator.geolocation.getCurrentPosition(showPosition);
+				    }
+				  else
+				  {
+				  	x.innerHTML="Geolocation is not supported by this browser.";}
+				  }
+
+				function showPosition(position)
+				  {
+				  var latlon=position.coords.latitude+","+position.coords.longitude;
+
+				  var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
+				  +latlon+"&zoom=14&size=400x300&sensor=false";
+				  document.getElementById("mapholder").innerHTML="<img src='"+img_url+"'>";
+				  }
+
+				</script>
 			</div>
 
 
+			<div style="display:none" id="FontElements.html">
+				<div id="div_fontElems">
+				With CSS3, websites can finally use fonts other than the pre-selected fonts.
+				</div>
+			</div>
 
+			<div style="display:none" id="BorderImage.html">
+					<h1> Border-Image </h1>
+					<br />
+					<div id="round">Here, the image is tiled (repeated) to fill the area.</div>
+					<br>
+					<div id="stretch">Here, the image is stretched to fill the area.</div>
+
+					<p>Here is the image used:</p>
+					<img src="borderdir.png">
+			</div>
+
+			<div style="display:none" id="Border.html">	
+				<h1>Border-Radius and Box-Shadow</h1><br />
+				<div class = "s1">Illustrating the <code>border-radius</code> and the <code>box-shadow </code>properties.</div>
+				<br /><br /><br />
+			</div>
+
+			<div style="display:none" id="texteffects.html">	
+				<p class="test"> This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</p>
+
+
+				<h1 class="shad">Text-shadow effect!</h1>
+			</div>
+
+			<div style="display:none" id="FontElementsDesc.html">
+				<table border = 1>
+					<tr>
+						<td><b>Descriptor</b></td>
+						<td><b>Values</b></td>
+						<td><b>Description</b></td>
+					</tr>
+					<tr>
+						<td>font-family</td>
+						<td><i>name</i></td>
+						<td>Required. Defines a name for the font</td>
+					</tr>
+					<tr>
+						<td>src</td>
+						<td>URL</td>
+						<td>Required. Defines the URL of the font file</td>
+					</tr>
+					<tr>
+						<td>font-stretch</td>
+						<td>normal<br>condensed<br>ultra-condensed<br>extra-condensed<br>semi-condensed<br>expanded<br>semi-expanded<br>extra-expanded<br>ultra-expanded</td>
+						<td>Required. Defines the URL of the font file</td>
+					</tr>
+					<tr>
+						<td>font-style</td>
+						<td>normal<br>italic<br>oblique</td>
+						<td>Optional. Defines how the font should be styled. Default is "normal"</td>
+					</tr>
+					<tr>
+						<td>font-weight</td>
+						<td>normal<br>bold<br>100..</td>
+						<td>Optional. Defines the boldness of the font. Default is "normal"</td>
+					</tr>
+				</table>
+			</div>
 
 
 
@@ -292,17 +577,17 @@
 			<div class="tile-wrapper">
 				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Semantic Elements</div>
 				<br>
-				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Canvas 1</div>
+				<div class="tile" id="CanvasBasic" onclick="showPopup(this)">Basic Canvas</div>
 				<br>
-				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Canvas 2</div>
+				<div class="tile" id="Canvas_composting_all" onclick="showPopup(this)">Composting in Canvas[A]</div>
 			</div>
 
 			<div class="tile-wrapper">
-				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Canvas 3</div>
+				<div class="tile" id="Canvas_composting_single" onclick="showPopup(this)">Composing in Canvas</div>
 				<br>
-				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Canvas 4</div>
+				<div class="tile" id="Canvas_Line" onclick="showPopup(this)">Lines in Canvas</div>
 				<br>
-				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Canvas 5</div>
+				<div class="tile" id="canvas_mouseover" onclick="showPopup(this)">Mouse Handling Canvas</div>
 			</div>
 
 			<div class="tile-wrapper">
@@ -314,9 +599,9 @@
 			</div>
 
 			<div class="tile-wrapper">
-				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Geolocation 1</div>
+				<div class="tile" id="GeoLocCoord" onclick="showPopup(this)">Geolocation</div>
 				<br>
-				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Geolocation 2</div>
+				<div class="tile" id="GeoLocMap" onclick="showPopup(this)">Geolocation Map</div>
 				<br>
 				<div class="tile" id="SimpleFileUpload" onclick="showPopup(this)">File API [Input Type]</div>
 				<br>
@@ -326,13 +611,13 @@
 				<br>
 				<div class="tile" id="DragnDropFile" onclick="showPopup(this)">Drag and Drop File Upload</div>
 				<br>
-				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Fonts</div>
+				<div class="tile" id="FontElements" onclick="showPopup(this)">Font Elements</div>
 				<br>
 			</div>
 			<div class="tile-wrapper">
-				<div class="tile" id="SemanticElements" onclick="showPopup(this)">CSS Selectors</div>
+				<div class="tile" id="Border" onclick="showPopup(this)">Borders</div>
 				<br>
-				<div class="tile" id="SemanticElements" onclick="showPopup(this)">Text Shadow</div>
+				<div class="tile" id="texteffects" onclick="showPopup(this)">Text Effects</div>
 				<br>
 				<div class="tile" id="Dock" onclick="showPopup(this)">CSS3 Transformations [Mac OSX Dock]</div>
 				<br>
@@ -348,9 +633,9 @@
 			<div class="tile-wrapper">
 				<div class="tile" id="MediaQueries" onclick="showPopup(this)">Media Queries</div>
 				<br>
-				<div class="tile" id="SemanticElements" onclick="showPopup(this)"></div>
+				<div class="tile" id="BorderImage" onclick="showPopup(this)">Border Image</div>
 				<br>
-				<div class="tile" id="SemanticElements" onclick="showPopup(this)"></div>
+				<div class="tile" id="FontElementsDesc" onclick="showPopup(this)">Font Elements Description</div>
 			</div>
 			
 
@@ -361,7 +646,9 @@
 				<div class="tile" id="SemanticElements" onclick="showPopup(this)"></div>
 				<br>
 				<div class="tile" id="SemanticElements" onclick="showPopup(this)"></div>
-			</div><div class="tile-wrapper">
+			</div>
+
+			<div class="tile-wrapper">
 				<div class="tile"></div>
 				<br>
 				<div class="tile"></div>

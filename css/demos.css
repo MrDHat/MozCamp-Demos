@@ -371,5 +371,79 @@ CSS Transitions
 
 /* End Transitions */
 
+/*
+Font Elements
+*/
+
+@font-face
+{
+font-family: myFirstFont;
+src: url('Sansation_Bold.ttf')
+    ,url('Sansation_Bold.eot');
+font-weight:bold;
+}
+
+.div_fontElems
+{
+font-family:myFirstFont;
+font-weight:bold;
+}
+
+/* End Font */
+
+
+/*
+Borders
+*/
+
+.s1
+{
+border:2px solid black;
+padding: 10px 30px;
+background:orange;
+width:300px;
+border-radius:25px;
+box-shadow: 10px 10px 5px silver;
+}
+#round
+{
+border-image:url(../borderdir.png) 30 30 round;
+padding: 10px 30px;
+background:orange;
+width:300px;
+box-shadow: 10px 10px 5px silver;
+}
+
+#stretch
+{
+border-image:url(../borderdir.png) 30 30 stretch;
+padding: 10px 30px;
+background:orange;
+width:300px;
+box-shadow: 10px 10px 5px silver;
+}
+
+
+/* End Borders */
+
+
+
+/*
+Text Effects
+*/
+
+.shad
+{
+text-shadow: 5px 5px 2px grey;
+}
+
+p.test
+{
+width:11em; 
+border:1px solid black;
+word-wrap:break-word;
+}
+
+/* End Text Effects */
 
 

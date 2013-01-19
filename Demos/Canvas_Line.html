@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+<canvas id = "myCanvas" height = "500" width = "500" style = "border:5px solid;">
+<script>
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+ctx.fillStyle='orange';
+ctx.fillRect(0,0,500,500);
+
+//Draw line 1
+ctx.moveTo(15,15);
+ctx.lineTo(100,250);
+ctx.stroke();
+ctx.fillText('Plain Line',15,300);
+
+//Draw line 2 (Shadowing)
+ctx.moveTo(160,15);
+ctx.lineTo(250,250);
+ctx.lineCap = "square";
+ctx.lineWidth = 6;
+ctx.shadowOffsetX = 10;
+ctx.shadowOffsetY = 10;
+ctx.shadowBlur = 5;
+ctx.shadowColor = 'grey';
+ctx.stroke();
+
+//Draw line 3 (Miter)
+ctx.moveTo(300,15);
+ctx.lineTo(400,250);
+ctx.lineWidth = 12;
+ctx.shadowOffsetX = 0;
+ctx.shadowOffsetY = 0;
+ctx.shadowBlur = 0;
+ctx.shadowColor = 'grey';
+ctx.lineCap = "square";
+ctx.lineJoin = "miter";
+ctx.miterLimit = 10;
+ctx.stroke();
+
+
+</script>
+</body>
+</html>
