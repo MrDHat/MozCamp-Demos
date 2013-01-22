@@ -1,0 +1,449 @@
+/*	Sticky Notes Application
+*/
+
+.note{
+	display: block;
+	background-color: #B3C4D3;
+	width: 300px;
+	height: 350px;
+	position: absolute;
+	top: 15%;
+	left: 10%;
+	box-shadow: 10px 5px 5px black;
+	transition: all .5s;
+}
+
+.note:hover{
+	transform: rotate(12deg) scale(1.2);
+
+}
+
+.note_heading{
+	height: 50px;
+	border-bottom: 1px #52A515 solid;
+	border-width: 3px;
+	margin-top: 10px;
+	text-align: center;
+	text-indent:  10px;
+	font-weight: bold;
+	font-size: 1.3em
+}
+
+.note_content{
+	margin-left: 10px;
+	margin-top: 10px;
+	font-family: "Reenie Beanie",arial,sans-serif;
+	font-size: 1.6em;
+	font-weight: bold;
+}
+
+.save_button{
+	margin-left: 30px;
+}
+
+/* End Sticky notes */
+
+
+/*
+Simple File Upload [Sets uploaded Image as background]
+*/
+.input_file{
+	margin-left: 30%;
+	margin-top: 10%;
+}
+/* End Simple File Upload*/
+
+
+/*
+Dock
+*/
+
+.dock{
+	margin-left: 2%;
+	margin-top: 40%;
+	float: left;
+}
+
+.dock_item{
+	transition: all .5s;
+}
+
+.dock_item:hover{
+	transform: translateY(-30px) scale(1.5);
+
+}
+
+/* End Dock */
+
+/*
+Drag n Drop File Upload
+*/
+
+.drop_container{
+	float: left;
+}
+
+.drop_files{
+	display: inline-block;
+	margin-top: 100px;
+	margin-left: 10px;
+	padding-top: 100px;
+	padding-left: 30px;
+	height: 100px;
+	width: 500px;
+	background-color: #282433;
+	border: 2px #16800A dashed;
+	text-align: center;
+	color: #DDDDDE;
+	border-radius: 20px;
+}
+
+.drop_files_droping{
+	display: inline-block;
+	margin-top: 100px;
+	margin-left: 10px;
+	padding-top: 100px;
+	padding-left: 30px;
+	height: 100px;
+	width: 500px;
+	background-color: #443B3E;
+	border: 5px #16800A solid;
+	text-align: center;
+	color: #DDDDDE;
+	border-radius: 30px;
+}
+
+.preview{
+	padding-left: 20px;
+}
+
+/* End Drag n Drop File */
+
+
+
+/*
+Media Queries
+*/
+
+.media_wrapper {
+    border: solid 1px #666; 
+    padding: 5px 10px;
+    margin: 40px;
+}
+
+.viewing-area span {
+    color: #666;
+    display: none;
+}
+
+/* max-width */
+@media screen and (max-width: 600px) {
+    .one {
+        background: #95B7E1;
+    }
+    span.lt600 {
+        display: inline-block;
+    }
+}
+
+/* min-width */
+@media screen and (min-width: 900px) {
+    .two {
+        background: #83B652;
+    }
+    span.gt900 {
+        display: inline-block;
+    }
+}
+
+/* min-width & max-width */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+    .three {
+        background: #ED2024;
+    }
+    span.bt600-900 {
+        display: inline-block;
+    }
+}
+
+/* End Media Queries */
+
+/* 
+Drag and Drop
+*/
+
+#boxA, #boxB {
+   float:left;
+   padding:10px;
+   margin:10px;
+}
+#boxA { 
+	background-color: #6633FF; 
+	width:75px; 
+	height:75px;  
+}
+#boxB { 
+	background-color: #FF6699; 
+	width:150px; 
+	height:150px; 
+}
+
+/* End Drag and Drop */
+
+
+/*
+Box Animation
+*/
+
+@keyframes box_anim
+{
+	0%   {background:red; left:0px; top:0px;}
+	25%  {background:yellow; left:200px; top:0px;}
+	50%  {background:blue; left:200px; top:200px;}
+	75%  {background:green; left:0px; top:200px;}
+	100% {background:red; left:0px; top:0px;}
+}
+
+@-moz-keyframes box_anim /* Firefox */
+{
+	0%   {background:red; left:0px; top:0px;}
+	25%  {background:yellow; left:200px; top:0px;}
+	50%  {background:blue; left:200px; top:200px;}
+	75%  {background:green; left:0px; top:200px;}
+	100% {background:red; left:0px; top:0px;}
+}
+
+@-webkit-keyframes box_anim /* Safari and Chrome */
+{
+	0%   {background:red; left:0px; top:0px;}
+	25%  {background:yellow; left:200px; top:0px;}
+	50%  {background:blue; left:200px; top:200px;}
+	75%  {background:green; left:0px; top:200px;}
+	100% {background:red; left:0px; top:0px;}
+}
+
+@-o-keyframes box_anim /* Opera */
+{
+	0%   {background:red; left:0px; top:0px;}
+	25%  {background:yellow; left:200px; top:0px;}
+	50%  {background:blue; left:200px; top:200px;}
+	75%  {background:green; left:0px; top:200px;}
+	100% {background:red; left:0px; top:0px;}
+}
+
+.box_anim_div
+{
+	width:100px;
+	height:100px;
+	margin-left: 400px;
+	margin-top: 150px;
+	background:red;
+	position:relative;
+	animation:box_anim 5s;
+	-moz-animation:box_anim 5s; /* Firefox */
+	-webkit-animation:box_anim 5s; /* Safari and Chrome */
+	-o-animation:box_anim 5s; /* Opera */
+
+	animation-iteration-count: infinite;
+	-moz-animation-iteration-count: infinite;
+	-o-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+
+}
+
+
+/* End Box Animation */
+
+
+/*
+Animated Mech
+*/
+
+@-moz-keyframes rotate-mech {
+    0% {
+        -moz-transform: rotate(0deg)
+    }
+    25% {
+        -moz-transform: rotate(15deg)
+    }
+    50% {
+        -moz-transform: rotate(-5deg)
+    }
+    55% {
+        -moz-transform: rotate(0deg)
+    }
+    75% {
+        -moz-transform: rotate(-10deg)
+    }
+    100% {
+        -moz-transform: rotate(0deg)
+    }
+}
+
+@-webkit-keyframes rotate-mech {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+    25% {
+        -webkit-transform: rotate(15deg)
+    }
+    50% {
+        -webkit-transform: rotate(-5deg)
+    }
+    55% {
+        -webkit-transform: rotate(0deg)
+    }
+    75% {
+        -webkit-transform: rotate(-10deg)
+    }
+    100% {
+        -webkit-transform: rotate(0deg)
+    }
+}
+
+@keyframes rotate-mech {
+    0% {
+        transform: rotate(0deg)
+    }
+    25% {
+        transform: rotate(15deg)
+    }
+    50% {
+        transform: rotate(-5deg)
+    }
+    55% {
+        transform: rotate(0deg)
+    }
+    75% {
+        transform: rotate(-10deg)
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+}
+
+
+.animated_img{
+
+	margin-top: 100px;
+	margin-left: 100px;
+
+	-moz-animation-name: rotate-mech;
+    -moz-animation-duration: 7s;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-name: rotate-mech;
+    -webkit-animation-duration: 7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: rotate-mech;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+}
+
+
+
+/* End Animated Mech */
+
+
+/*
+CSS Transitions
+*/
+
+.div_transition
+{
+	width:100px;
+	height:100px;
+	background:green;
+	transition:width 2s, height 2s;
+	-moz-transition:width 2s, height 2s, -moz-transform 2s; /* Firefox*/
+	-webkit-transition:width 2s, height 2s, -webkit-transform 2s; /* Safari and Chrome */
+	-o-transition:width 2s, height 2s, -o-transform 2s; /* Opera */
+}
+
+.div_transition:hover
+{
+	width:200px;
+	height:200px;
+	transform:rotate(180deg);
+	-moz-transform:rotate(180deg); /* Firefox */
+	-webkit-transform:rotate(180deg); /* Safari and Chrome */
+	-o-transform:rotate(180deg); /* Opera */
+}
+
+/* End Transitions */
+
+/*
+Font Elements
+*/
+
+@font-face
+{
+font-family: myFirstFont;
+src: url('Sansation_Bold.ttf')
+    ,url('Sansation_Bold.eot');
+font-weight:bold;
+}
+
+.div_fontElems
+{
+font-family:myFirstFont;
+font-weight:bold;
+}
+
+/* End Font */
+
+
+/*
+Borders
+*/
+
+.s1
+{
+border:2px solid black;
+padding: 10px 30px;
+background:orange;
+width:300px;
+border-radius:25px;
+box-shadow: 10px 10px 5px silver;
+}
+#round
+{
+border-image:url(../borderdir.png) 30 30 round;
+padding: 10px 30px;
+background:orange;
+width:300px;
+box-shadow: 10px 10px 5px silver;
+}
+
+#stretch
+{
+border-image:url(../borderdir.png) 30 30 stretch;
+padding: 10px 30px;
+background:orange;
+width:300px;
+box-shadow: 10px 10px 5px silver;
+}
+
+
+/* End Borders */
+
+
+
+/*
+Text Effects
+*/
+
+.shad
+{
+text-shadow: 5px 5px 2px grey;
+}
+
+p.test
+{
+width:11em; 
+border:1px solid black;
+word-wrap:break-word;
+}
+
+/* End Text Effects */
+
+

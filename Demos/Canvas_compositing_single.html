@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+<canvas id="myCanvas" width="125" height="125"></canvas>
+<script type="text/javascript">
+	
+	//var label = document.createTextNode("Source-over");
+    can = document.getElementById("myCanvas");
+    var ctx = can.getContext("2d");
+    
+	// draw rectangle
+    ctx.fillStyle = "red";
+    ctx.fillRect(15,15,70,70);
+
+    // set composite property
+    ctx.globalAlpha=0.38;
+    ctx.globalCompositeOperation = "source-over";
+
+    // draw circle
+    ctx.fillStyle = "blue";
+    ctx.beginPath();
+    ctx.arc(75,75,35,0,Math.PI*2,true);
+    ctx.fill();
+    
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!--Note:
+HTML5 canvas provides compositing attribute globalCompositeOperation which affect all the drawing operations.
+We can draw new shapes behind existing shapes and mask off certain areas, clear sections from the canvas using 
+globalCompositeOperation attribute as shown below in the example.
+-->

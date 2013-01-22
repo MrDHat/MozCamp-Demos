@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+<img id = "firefox" src = "../img/firefox.png" height = "100" width = "100" style = "display:none;">
+<canvas id = "myCanvas" height = "500" width = "500" style = "border:5px solid;">
+<script>
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+//Create gradient
+var grd = ctx.createRadialGradient(250, 250, 5, 250, 250, 350);
+grd.addColorStop(0,"green");
+grd.addColorStop(1,"white");
+ctx.fillStyle=grd;
+ctx.fillRect(0,0,500,500);
+
+ctx.font = "30px Arial Black";
+
+//Write Text
+ctx.fillText("MozCamp",70,490);
+ctx.strokeText("Delhi 2013",235,490);
+
+//Draw a line
+ctx.moveTo(0,450);
+ctx.lineTo(500,450);
+ctx.stroke();
+
+//Draw image
+var img = document.getElementById("firefox");
+ctx.drawImage(img,125,95);
+
+//Draw circle around the image
+ctx.beginPath();
+ctx.arc(250,220,110,0,Math.PI*2, true);
+ctx.stroke();
+</script>
+</body>
+</html>

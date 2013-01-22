@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+
+.s1
+{
+border:2px solid black;
+padding: 10px 30px;
+background:orange;
+width:300px;
+border-radius:25px;
+box-shadow: 10px 10px 5px silver;
+}
+#round
+{
+border-image:url(borderdir.png) 30 30 round;
+padding: 10px 30px;
+background:orange;
+width:300px;
+box-shadow: 10px 10px 5px silver;
+}
+
+#stretch
+{
+border-image:url(borderdir.png) 30 30 stretch;
+padding: 10px 30px;
+background:orange;
+width:300px;
+box-shadow: 10px 10px 5px silver;
+}
+
+</style>
+</head>
+<body>
+<h1>Border-Radius and Box-Shadow</h1><br />
+<div class = "s1">Illustrating the <code>border-radius</code> and the <code>box-shadow </code>properties.</div>
+<br /><br /><br />
+</body>
+
+<body>
+<h1> Border-Image </h1>
+<br />
+<div id="round">Here, the image is tiled (repeated) to fill the area.</div>
+<br>
+<div id="stretch">Here, the image is stretched to fill the area.</div>
+
+<p>Here is the image used:</p>
+<img src="borderdir.png">
+
+</body>
+</html>
+
