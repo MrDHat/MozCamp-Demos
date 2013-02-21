@@ -1,1 +1,6 @@
 MozCamp Delhi January 2013 Web Fundamentals [Intermediate] Demos.
+
+To Do:
+1. Make the code readable and introduce indenting.
+      The code in demos folder contains code in a single line (Done so as to include the code dynamically into the page which is not needed now).
+2. Make the demos load on the fly i.e. from their original source (in demos folder) and not from the index file.
