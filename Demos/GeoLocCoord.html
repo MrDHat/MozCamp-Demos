@@ -1,27 +1,46 @@
 <!DOCTYPE html>
-<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="../css/demos.css">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular">
+    <link href='http://fonts.googleapis.com/css?family=Joti+One|Stalemate' rel='stylesheet' type='text/css'>
+    
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/demos.js"></script>
+
+    <script>
+      
+      function getLocation()
+      {
+        var x=document.getElementById("demo");
+        if (navigator.geolocation)
+        {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+        else
+        {
+            x.innerHTML="Geolocation is not supported by this browser.";}
+        }
+      
+        function showPosition(position)
+        {
+          var x=document.getElementById("demo");
+          x.innerHTML="Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude+ "<br>Speed: " + position.coords.accuracy;  
+        }
+      
+    </script>
+
+</head>
+
 <body>
 
-<p id="demo">Click the button to get your coordinates:</p>
-<button onclick="getLocation()">Try It</button>
+  <p id="demo">
+    Click the button to get your coordinates:
+  </p>
+  <button onclick="getLocation()">
+    Try It
+  </button>
 
-<script>
-var x=document.getElementById("demo");
-function getLocation()
-  {
-  if (navigator.geolocation)
-	{
-	    navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  else
-  {
-  	x.innerHTML="Geolocation is not supported by this browser.";}
-  }
-
-function showPosition(position)
-  {
-	  x.innerHTML="Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude+ "<br>Speed: " + position.coords.accuracy;	
-  }
-</script>
 </body>
 </html>

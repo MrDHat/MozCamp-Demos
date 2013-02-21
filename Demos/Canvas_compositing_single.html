@@ -1,30 +1,38 @@
 <!DOCTYPE HTML>
-<html>
 <head>
+
+    <link rel="stylesheet" type="text/css" href="../css/demos.css">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular">
+    <link href='http://fonts.googleapis.com/css?family=Joti+One|Stalemate' rel='stylesheet' type='text/css'>
+    
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/demos.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            //var label = document.createTextNode("Source-over");
+            can = document.getElementById("myCanvas");
+            var ctx = can.getContext("2d");
+            
+            // draw rectangle
+            ctx.fillStyle = "red";
+            ctx.fillRect(15,15,70,70);
+
+            // set composite property
+            ctx.globalAlpha=0.38;
+            ctx.globalCompositeOperation = "source-over";
+
+            // draw circle
+            ctx.fillStyle = "blue";
+            ctx.beginPath();
+            ctx.arc(75,75,35,0,Math.PI*2,true);
+            ctx.fill();
+        });    
+    </script>
 </head>
 <body>
-<canvas id="myCanvas" width="125" height="125"></canvas>
-<script type="text/javascript">
-	
-	//var label = document.createTextNode("Source-over");
-    can = document.getElementById("myCanvas");
-    var ctx = can.getContext("2d");
-    
-	// draw rectangle
-    ctx.fillStyle = "red";
-    ctx.fillRect(15,15,70,70);
-
-    // set composite property
-    ctx.globalAlpha=0.38;
-    ctx.globalCompositeOperation = "source-over";
-
-    // draw circle
-    ctx.fillStyle = "blue";
-    ctx.beginPath();
-    ctx.arc(75,75,35,0,Math.PI*2,true);
-    ctx.fill();
-    
-</script>
+    <canvas id="myCanvas" width="125" height="125"></canvas>
 </body>
 </html>
 

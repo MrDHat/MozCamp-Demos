@@ -44,8 +44,12 @@ function fileToBackground(files){
 
 
 function handleFileLoad(evt){
+	var file_holder = document.getElementById('input_file') ;
+	file_holder.parentNode.style.backgroundImage = "url("+ evt.target.result + ")";
+	/*
 	var popUp = document.getElementById('light') ;
 	popUp.style.backgroundImage = "url("+ evt.target.result + ")";
+	*/
 }
 
 

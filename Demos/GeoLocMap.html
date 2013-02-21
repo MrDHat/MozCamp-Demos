@@ -1,33 +1,53 @@
 <!DOCTYPE html>
-<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="../css/demos.css">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular">
+    <link href='http://fonts.googleapis.com/css?family=Joti+One|Stalemate' rel='stylesheet' type='text/css'>
+    
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/demos.js"></script>
+
+    <script>
+  
+      function getLocation()
+      {
+        var x=document.getElementById("demo");
+        if (navigator.geolocation)
+          {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          }
+        else
+        {
+          x.innerHTML="Geolocation is not supported by this browser.";}
+        }
+
+      function showPosition(position)
+      {
+        var x=document.getElementById("demo");
+        var latlon=position.coords.latitude+","+position.coords.longitude;
+
+        var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
+        +latlon+"&zoom=14&size=400x300&sensor=false";
+        document.getElementById("mapholder").innerHTML="<img src='"+img_url+"'>";
+      }
+
+  </script>
+
+</head>
+
 <body>
-<p id="demo">Click the button to get your GeoLocation on Maps:</p>
+  
+  <p id="demo">
+    Click the button to get your GeoLocation on Maps:
+  </p>
 
-<button onclick="getLocation()">Get GeoLocation</button>
-<div id="mapholder"></div>
-<script>
-var x=document.getElementById("demo");
-function getLocation()
-  {
-  if (navigator.geolocation)
-    {
-    	navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  else
-  {
-  	x.innerHTML="Geolocation is not supported by this browser.";}
-  }
-
-function showPosition(position)
-  {
-  var latlon=position.coords.latitude+","+position.coords.longitude;
-
-  var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
-  +latlon+"&zoom=14&size=400x300&sensor=false";
-  document.getElementById("mapholder").innerHTML="<img src='"+img_url+"'>";
-  }
-
-</script>
+  <button onclick="getLocation()">
+    Get GeoLocation
+  </button>
+  <div id="mapholder"></div>
+  
 </body>
 </html>
 
