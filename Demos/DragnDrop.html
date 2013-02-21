@@ -1,1 +1,49 @@
-<center><div>Try to move the purple box into the pink box.</div><div id="boxA" draggable="true" ondragstart="return dragStart(event)"><p>Drag Me</p></div><div id="boxB" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">Dustbin</div></center>
+<!DOCTYPE HTML>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="../css/demos.css">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular">
+    <link href='http://fonts.googleapis.com/css?family=Joti+One|Stalemate' rel='stylesheet' type='text/css'>
+    
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/demos.js"></script>
+
+    <script type="text/javascript">
+    	function dragStart(ev) {
+		   ev.dataTransfer.effectAllowed='move';
+		   ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
+		   ev.dataTransfer.setDragImage(ev.target,0,0);
+		   return true;
+		}
+		function dragEnter(ev) {
+		   event.preventDefault();
+		   return true;
+		}
+		function dragOver(ev) {
+		    return false;
+		}
+		function dragDrop(ev) {
+		   var src = ev.dataTransfer.getData("Text");
+		   ev.target.appendChild(document.getElementById(src));
+		   ev.stopPropagation();
+		   return false;
+		}
+    </script>
+    
+</head>
+<body>
+
+	<center> <!-- Yeah, a bad really bad practice using the center tag! -->
+		<div>
+			Try to move the purple box into the pink box.
+		</div>
+		<div id="boxA" draggable="true" ondragstart="return dragStart(event)">
+			<p>Drag Me</p>
+		</div>
+		<div id="boxB" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
+			Dustbin
+		</div>
+	</center>
+
+</body>
